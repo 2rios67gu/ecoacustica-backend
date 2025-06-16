@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from app.routers import especie, audio, espectrograma, segmentacion, resultado_identificacion, historial_espectrograma
+from app.routers import especie, audio, espectrograma, segmentacion, resultado_identificacion, historial_espectrograma, test_db
 from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
@@ -24,6 +25,7 @@ app.include_router(espectrograma.router)
 app.include_router(segmentacion.router)
 app.include_router(resultado_identificacion.router)
 app.include_router(historial_espectrograma.router)
+app.include_router(test_db.router)
 from app.database.session import get_db 
 
 @app.get("/")
